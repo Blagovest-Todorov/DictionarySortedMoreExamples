@@ -1,27 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace _16.SortedDictionary
+namespace _17.DictionaryExample
 {
     class Program
     {
         static void Main(string[] args)
+        // Problem -> count the real numbers, in an input of console .
         {
-            var events = new SortedDictionary<DateTime, string>();
-            events[new DateTime(1998, 9, 4)] = "Googles birht date";
-            events[new DateTime(2013, 11, 5)] = "SoftUnis birth date";
-            events[new DateTime(1975, 4, 4)] = "Microsofts birth Date";
-            events[new DateTime(2004, 2, 4)] = "FaceBoolk birth date";
-            events[new DateTime(2013, 11, 5)] = "SoftIUni was founded";
-            events[new DateTime(2000, 12, 20)] = "foundation of Sharans Book ";
+            // numbers 12 1 -3 105 224  12 -1 ; -> take numbers, and take numberOccurences ; key->value pair
+            // 5 15 16 25 105 49 // sortedDictionary automaticaaly sorts by key 
+            string input = Console.ReadLine();
+            string[] numbers = input.Split(' ');
 
-            foreach (var entry in events)
+            var dict = new SortedDictionary<double, int>();  //We create a dictionary with pair -> double, and int
+            // int is the number of occurences!
+
+            foreach (string number in numbers)
             {
-                //  Console.WriteLine(entry.Key + " " + entry.Value);  // not sored the key-;
-                Console.WriteLine();
-                Console.WriteLine("{0:dd-MMM-yyyy }: {1}", entry.Key, entry.Value);
-                // here sorted the output by key,  the data is sorted by format :dd :MM:yyyy;
-                //assending sorting from lowest-earliest day to the highest, latest day !
+                double num = double.Parse(number);
+                if (!dict.ContainsKey(num))   //if the key is not existing into the array then create it !
+                {
+                    dict[num] = 0;
+                }
+                dict[num] += 1;
+            }
+            foreach (KeyValuePair<double, int> pair in dict)
+            {
+                Console.WriteLine("{0} -> {1}", pair.Key, pair.Value + " times");
             }
 
         }
