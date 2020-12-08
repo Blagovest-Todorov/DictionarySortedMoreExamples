@@ -19,8 +19,9 @@ namespace _16.SortedDictionary
             {
                 //  Console.WriteLine(entry.Key + " " + entry.Value);  // not sored the key-;
                 Console.WriteLine();
-                Console.WriteLine("{0:dd-MMM-yyyy }: {1}", entry.Key, entry.Value); 
+                Console.WriteLine("{0:dd-MMM-yyyy }: {1}", entry.Key, entry.Value);
                 // here sorted the output by key,  the data is sorted by format :dd :MM:yyyy;
+                //assending sorting from lowest-earliest day to the highest, latest day !
             }
 
         }
